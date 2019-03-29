@@ -81,7 +81,8 @@ For example:
 # hash("Gidi")
   07012709831993
 
-# You can only put immutable items in the set
+  You can only put immutable items in the set
+
 # Adding and Removing from sets
 ```
  colors={"Red","Green","Blue"}
