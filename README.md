@@ -151,7 +151,8 @@ set1.intersection(set2) or set & set2
 # Ctrl + Shift + P
   Run Python file in the terminal
 
-# python file_name.py     //Running it outside of Visual Code
+# python file_name.py   
+  This is how you run a python file in the terminal
   If the code needs to be reusable , we need to put it in the main method
 
 
