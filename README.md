@@ -32,8 +32,8 @@ Ctrl + P
 	def foo():
 		.....print("Hello")
 ```
->>>foo();
->>>Hello World
+foo();
+Hello World
 
 # Where dynamic types meeting smart naming conventions
 
@@ -151,8 +151,7 @@ set1.intersection(set2) or set & set2
   Run Python file in the terminal
 
 # python file_name.py     //Running it outside of Visual Code
-
-# If the code needs to be reusable , we need to put it in the main method
+  If the code needs to be reusable , we need to put it in the main method
 
 
 
