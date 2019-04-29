@@ -1,159 +1,157 @@
 # Intro_to_python
+
 This code was a part of the Intro to Python workshop by Front End Masters
 
+A small python program that uses the GitHub search API to list the top
+projects by languages, based on stars.
+Github Search API documentation: https://developer.github.com/v3/search/
 
-  A small python program that uses the GitHub search API to list the top
-  projects by languages, based on stars.
-  Github Search API documentation: https://developer.github.com/v3/search/
-  
-#  Helpful Python commands
+# How Python Executes
 
-Windows Powershell-> To activate your virtual environment
-```
-env\scripts\activate
+When we first run our code using CPython, it will compile our python code into python bytecode. Then it will pass the bytecode to Python Virtual Machine which will convert it into machine code.
 
-```
+There are various Python implementations
 
-Keyboard shortcuts: Ctrl+shift+P
-Ctrl + P
+1. Jython- If you want to write Java code in Java. Here our code will be compiled to java bytecode which the JVM will convert into machine code.
 
-# Why do we use Virtual Environments?
-  It is extremely useful while working with third party libraries.
+2. PyPy
 
-```
-  type()
-  dir()
-  help()-Pass in the type
-```
+3. IronPython
 
-# Anatomy of a Python Function
+# Primitive Types in Python
 
-```
-	def foo():
-		.....print("Hello")
-```
-foo();
-Hello World
+1. String
+2. Numbers- (Int, Float, Complex Numbers)
+3. Boolean
 
-# Where dynamic types meeting smart naming conventions
+New Learnings: String Comparison in Python
+Suppose you have str1 as "Mary" and str2 as "Mac" . The first two characters from str1 and str2 ( M and M ) are compared. As they are equal, the second two characters are compared. Because they are also equal, the third two characters ( r and c ) are compared. And because 'r' has greater ASCII value than 'c' , str1 is greater than str2 .
 
-== equality in python
-  is, Do the point to the same thing in memory
+# Return Values from Functions
 
-# Everything is a object in Python
-  
-  ```
-  type([])
-  <class 'list'>
+In Python unlike other programming languages, we can return multiple values.
 
-  >>> name=["Nina","Max","Rose"]
-  >>> len(names)
-  >>> 3
+```python
+def increment(number,by):
+    return (number,by)
 
+
+print(increment(2,3))
+
+# Output: (2,3)
 ```
 
- dir() is an handy method to know the number of methods available to that
- data type
+# Data Structures
 
-# Tuples
-  Tuples are immutable
+# Some Interesting Tit Bits
 
-For example:
- ```
- x=(1,2,3)
+### Lists
 
- x[1]=2;
->>> Type Error. Values cannot be re-assigned
-```
+```python
+numbers=[1,3,5]
+first,second,third=numbers
 
-# Sets
-```
-  set()
-  {1}
-  type({1})
-  <class 'set'>
+letters=["a","b","c"]
 
+for letter in enumerate(letters):
+    print(letter[0],letter[1])
 
-  names={"Gidi", "Ronj","Joel"}
-  type(names)
->>>Set
-```
-# hash("Gidi")
-  07012709831993
+Output
 
-  You can only put immutable items in the set
-
-# Adding and Removing from sets
-```
- colors={"Red","Green","Blue"}
- colors.add("Pink")
-
- colors.discard("Green")
- colors.remove("Green")
+0 a
+1 b
+2 c
 
 ```
 
-# Sets do not support indexing
-# The update method for sets expects a sequence
-# Set operations   
+# Lamdas in Python
+
+```python
+items=[
+("Product1",10),
+("Product2",9),
+("Product3",12),
+]
+
+ items.sort(key=lambda item:item[1])
+ print(items)
+
+# The lambda can used in the place of the
+  following method
+
+  def sortItems(item):
+      return item[1]
+
+   items.sort(key=sortItems)
+
+# Using the Same example from above
+
+items=[
+   ("Product1",10),
+   ("Product2",9),
+   ("Product3",12)
+]
+
+# Initial Approach
+
+price=[]
+
+for item in items:
+    prices.append(item[1])
+
+print(prices)
+
+
+# Lambda Approach
+
+x=map(lambda item:item[1],items)
+
+for item in x:
+    print(item)
+
+# List comprehensions
+
+prices=[item[1] for item in items]
+
 ```
-set1.union(set2)  or  set1 | set2 
-set1.intersection(set2) or set & set2
+
+# Generator Expressions
+
+```python
+
+values=(x*2 for x in range(5))
+print("list:", getsizeof(values))
+
+print(len(values))
+
+# Output:
+
+gen:120
+Error: Object of generator type have no values.
+
+
 ```
-  
-# The Difference
-  
-  set1 ^ set2
-  Elements that are in set1 but not in set2
 
-  help(set) or dir(set)
+# Factory methods in Python
 
-# Set is immmutable and the items aren't ordered
+```python
 
-# Dictionaries
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
 
-  Allows us to store data in key value pairs. Dictionary keys are mutable
-  Checking to see if key is in a dictionary is a very fast operation
-  
-  key:value pairs
-  ```
-  example: nums={ "one": "Gideon", "two":"Aaron". "three":"Stanislaus"}
-           nums.get("one", "defaultValue")
-  ```
+# Here cls is a reference to the class Point
 
-# Dictionaries are ordered in insertion order
+    @classmethod
+    def zero(cls):
+        return cls(0, 0)
 
-  .values()
-  .keys()
-  .items()
+    def draw(self):
+        print("draw")
 
 
+# Python Factory Functions
+point = Point.zero()
 
-# equality == !=
-  identity is keyword
-
-
-# In JavaScript, arrays and objects are passed by reference
-  while variables are passed by values
-
-
-# and , or , not
-  
-  ```
-  a=True
-  b=True
-  
-  a and b
-  >>true
-  If the value of a is true then it prints the value of b
- 
- ```
-# Ctrl + Shift + P
-  Run Python file in the terminal
-
-# python file_name.py   
-  This is how you run a python file in the terminal
-  If the code needs to be reusable , we need to put it in the main method
-
-
-
+```

@@ -1,5 +1,5 @@
 
-import requests
+import requests;
 
 
 def create_query(languages, min_stars=50000):
